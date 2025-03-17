@@ -7,8 +7,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
   <link rel="icon" href="{{ "/assets/images/favicon.ico" | relative_url }}">
+  {% seo %}
 </head>
 <body>
+  <header class="site-header">
+    <div class="wrapper">
+      <nav class="site-nav">
+        <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+        <div class="nav-links">
+          <a href="{{ site.baseurl }}/">Home</a>
+          <a href="{{ site.baseurl }}/about/">About</a>
+          <a href="{{ site.baseurl }}/contact/">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
   <main class="page-content" aria-label="Content">
     {{ content }}
   </main>
@@ -20,6 +34,8 @@
       </div>
     </div>
   </footer>
+
+  <script src="{{ site.baseurl }}/assets/js/placeholder-images.js"></script>
 </body>
 </html>
 
