@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
         title: "Initial Customer Contact",
         description:
           "A homeowner has contacted you about a potential kitchen remodel. They seem hesitant about the cost.",
-        image: "/assets/images/kitchen.jpg",
+        image: "/convo-game/assets/images/kitchen.jpg",
         options: [
           {
             text: "Start by discussing our financing options to address their cost concerns.",
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         title: "Handling the Budget Objection",
         description:
           "The customer says: 'Your quote is much higher than I expected. I don't think we can afford this.'",
-        image: "/assets/images/budget.jpg",
+        image: "/convo-game/assets/images/budget.jpg",
         options: [
           {
             text: "Immediately offer a discount to keep them interested.",
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
         id: 3,
         title: "Competing Quotes",
         description: "The customer mentions they've received a lower quote from a competitor.",
-        image: "/assets/images/competitor.jpg",
+        image: "/convo-game/assets/images/competitor.jpg",
         options: [
           {
             text: "Point out the flaws in competitors' work and materials.",
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
         id: 4,
         title: "Closing the Sale",
         description: "The customer seems interested but is hesitant to commit. They say they need to 'think about it.'",
-        image: "/assets/images/closing.jpg",
+        image: "/convo-game/assets/images/closing.jpg",
         options: [
           {
             text: "Tell them the quote is only valid today to create urgency.",
@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
         id: 5,
         title: "Post-Sale Follow-Up",
         description: "The project is complete. How do you maximize the value of this customer relationship?",
-        image: "/assets/images/complete.jpg",
+        image: "/convo-game/assets/images/complete.jpg",
         options: [
           {
             text: "Move on to the next potential customer to maximize your sales pipeline.",
@@ -145,9 +145,15 @@ document.addEventListener("DOMContentLoaded", () => {
     ],
   }
 
-  // Replace placeholder images with actual paths when available
+  // Fix image paths for GitHub Pages
   gameState.scenarios.forEach((scenario) => {
-    scenario.image = scenario.image || "/placeholder.svg?height=300&width=500"
+    // If image path doesn't start with http or https, use placeholder
+    if (!scenario.image.startsWith("http") && !scenario.image.startsWith("https")) {
+      // Check if the image path already has the baseurl
+      if (!scenario.image.includes("/convo-game/")) {
+        scenario.image = scenario.image || "/convo-game/placeholder.svg?height=300&width=500"
+      }
+    }
   })
 
   // DOM elements
@@ -219,6 +225,11 @@ document.addEventListener("DOMContentLoaded", () => {
     scenarioDescription.textContent = scenario.description
     scenarioImage.src = scenario.image
     scenarioImage.alt = scenario.title
+
+    // Add error handling for images
+    scenarioImage.onerror = function () {
+      this.src = "/convo-game/placeholder.svg?height=300&width=500"
+    }
 
     // Clear previous options
     optionsContainer.innerHTML = ""
