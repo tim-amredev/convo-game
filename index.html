@@ -1,0 +1,82 @@
+---
+layout: default
+title: Home Remodeling Sales Trainer
+---
+
+<div class="game-container">
+  <div class="game-header">
+    <h1>Home Remodeling Sales Trainer</h1>
+    <p>Improve your closing percentage through interactive scenarios</p>
+    <div class="stats-container">
+      <div class="stat">
+        <span id="score-label">Score:</span>
+        <span id="score">0</span>
+      </div>
+      <div class="stat">
+        <span id="closing-percentage-label">Closing %:</span>
+        <span id="closing-percentage">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="game-content">
+    <div id="scenario-container" class="scenario-container">
+      <div id="scenario-image" class="scenario-image">
+        <img src="/placeholder.svg?height=300&width=500" alt="Scenario illustration" />
+      </div>
+      <div id="scenario-text" class="scenario-text">
+        <h2 id="scenario-title">Welcome to the Sales Trainer</h2>
+        <p id="scenario-description">
+          This interactive training tool will help you improve your home remodeling sales techniques.
+          You'll be presented with realistic scenarios and customer objections.
+          Your goal is to choose the best responses to increase your closing percentage.
+        </p>
+      </div>
+    </div>
+
+    <div id="options-container" class="options-container">
+      <button id="start-button" class="primary-button">Start Training</button>
+    </div>
+
+    <div id="feedback-container" class="feedback-container hidden">
+      <div id="feedback-text" class="feedback-text"></div>
+      <div id="feedback-explanation" class="feedback-explanation"></div>
+      <button id="continue-button" class="secondary-button">Continue</button>
+    </div>
+  </div>
+
+  <div class="game-footer">
+    <div class="progress-container">
+      <div id="progress-bar" class="progress-bar"></div>
+    </div>
+    <div class="controls-container">
+      <button id="reset-button" class="text-button">Reset Progress</button>
+      <button id="help-button" class="text-button">Help</button>
+    </div>
+  </div>
+</div>
+
+<div id="help-modal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-button">&times;</span>
+    <h2>How to Play</h2>
+    <p>
+      1. Read each scenario carefully<br>
+      2. Choose the response you think will be most effective<br>
+      3. Receive feedback on your choice<br>
+      4. Learn from the explanation provided<br>
+      5. Track your progress and improvement over time
+    </p>
+    <h3>Tips for Success</h3>
+    <ul>
+      <li>Focus on understanding customer needs</li>
+      <li>Address objections with empathy</li>
+      <li>Highlight value over price</li>
+      <li>Build trust through knowledge and honesty</li>
+      <li>Know when to close the sale</li>
+    </ul>
+  </div>
+</div>
+
+<script src="/assets/js/game.js"></script>
+
